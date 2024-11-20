@@ -108,5 +108,5 @@ find_by_genre(Genre, Books) :- findall(Name, book(Name, _, _, Genre), Books).
 find_by_year(Year, Books):- findall(Name, book(Name, _, Year, _), Books).
 
 % Question 8
-recommend_by_genre(Books, Genre) :- find_by_author(Books, Genre).
-recommend_by_author(Books, Author) :- find_by_author(Books, Author).
+recommend_by_genre(Genre, Books) :- findall(Name, is_available(Name, _, _, Genre), Books).
+recommend_by_author(Author, Books) :- findall(Name, is_available(Name, Author, _, _), Books).
